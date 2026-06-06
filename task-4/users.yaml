@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: orlov-admin
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: petrov-devops
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: ivanov-dev
+  namespace: dev
