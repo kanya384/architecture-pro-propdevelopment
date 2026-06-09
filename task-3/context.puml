@@ -1,0 +1,15 @@
+@startuml
+!include <C4/C4_Container.puml>
+
+title Диаграмма контекста — Интеллектуальный домофон + интеллектуальный шлагбаум
+
+Person(tenant, "Жилец")
+
+System(propdevelopment, "Prop Development")
+System(partner, "Поставщик услуг")
+
+Rel(tenant, partner, "Звонок/Фото лица/Фото номера авто", "Https RestApi")
+
+Rel(propdevelopment, partner, "Запрос на аутентификацию", "Https RestApi")
+Rel(partner, propdevelopment, "Ответ на запрос на аутентификацию", "Https RestApi")
+@enduml

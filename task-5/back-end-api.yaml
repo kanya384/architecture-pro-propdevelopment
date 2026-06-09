@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: back-end-api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: back-end-api
+  template:
+    metadata:
+      labels:
+        app: back-end-api
+        role: back-end-api
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.27.0-alpine
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: back-end-api-svc
+spec:
+  selector:
+    app: back-end-api
+  ports:
+    - port: 80
